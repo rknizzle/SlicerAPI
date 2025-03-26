@@ -11,7 +11,7 @@ test("slices model into expected gcode and saves to expected output folder", asy
     unlinkSync("./gcodeFiles/cube.stl.gcode");
   }
 
-  const result = await sliceFile("./test-profile.ini", "./cube.stl");
+  const result = await sliceFile("./testdata/test-profile.ini", "./testdata/cube.stl");
 
   const expected = "./gcodeFiles/cube.stl.gcode";
   //result and expected should be matching file paths or the test will fail.
@@ -24,7 +24,7 @@ test("slices model into expected gcode and saves to expected output folder", asy
 
 test("throws an error when given a broken model file", async () => {
   try {
-    await sliceFile("./test-profile.ini", "./broken.stl");
+    await sliceFile("./testdata/test-profile.ini", "./testdata/broken.stl");
     assert.fail("Expected sliceFile to throw an error");
   } catch (error) {
     assert.ok(
