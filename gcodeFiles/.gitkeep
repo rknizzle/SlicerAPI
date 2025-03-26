@@ -1,0 +1,1 @@
+This file just states that I want to keep the gcodeFiles folder in the git repo but I don't want to track any of the files in it because files are dynamically added and removed by the app
