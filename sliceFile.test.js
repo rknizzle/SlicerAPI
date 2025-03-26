@@ -25,6 +25,14 @@ test("slices model into expected gcode and saves to expected output folder", asy
   assert.strictEqual(result, filePath);
 });
 
-//TODO:
-//Create another test that when given a broken model file throws an error.
-//assert threw an error. error message contains Loading of a model file failed.
+test("throws an error when given a broken model file", async () => {
+  try {
+    await sliceFile("./test-profile.ini", "./broken.stl");
+    assert.fail("Expected sliceFile to throw an error");
+  } catch (error) {
+    assert.ok(
+      error.message.includes("Loading of a model file failed."),
+      "Expected error message to include 'Loading of a model file failed'"
+    );
+  }
+});
