@@ -12,12 +12,12 @@ export default function sliceFile(profile_path, model_path) {
       (error, stdout, stderr) => {
         if (error) {
           console.error(`exec error: ${error}`);
-          reject(error);
+          return reject(error);
         }
         console.log(`stdout: ${stdout}`);
         console.error(`stderr: ${stderr}`);
 
-        resolve(`./gcodeFiles/${model_name}.gcode`);
+        return resolve(`./gcodeFiles/${model_name}.gcode`);
       }
     );
   });
